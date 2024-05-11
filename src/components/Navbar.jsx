@@ -20,10 +20,10 @@ const Navbar = () => {
             <Link to='/'>Home</Link>
           </li>
           <li>
-            <Link>Assignments</Link>
+            <Link to='/assignment'>Assignments</Link>
           </li>
           <li>
-            <Link to="createAssignment">Create Assignments</Link>
+            <Link to="/createAssignment">Create Assignments</Link>
           </li>
           <li>
             <Link>Pending Assignments </Link>
