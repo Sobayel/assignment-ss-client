@@ -31,7 +31,10 @@ const Assignments = () => {
             <div className='grid grid-cols-1 p-4 gap-8 mt-8 lg:mt-16 md:grid-cols-2 lg:grid-cols-4'>
             {features
               .map(feature => (
-                <AssignmentCard key={feature._id} feature={feature} />
+                <AssignmentCard key={feature._id} 
+                feature={feature}
+                features={features}
+                setFeatures={setFeatures} />
               ))}
           </div>
         </div>
