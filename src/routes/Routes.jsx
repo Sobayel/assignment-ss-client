@@ -7,10 +7,12 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import CreateAssignment from "../Pages/CreateAssignment";
 import Assignments from "../Pages/Assignments";
+import Error from "../Pages/Error";
 const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
+      errorElement:<Error></Error>,
       children:[
         {
             path: '/',
