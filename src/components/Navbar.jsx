@@ -23,7 +23,7 @@ const Navbar = () => {
             <Link>Assignments</Link>
           </li>
           <li>
-            <Link>Create Assignments</Link>
+            <Link to="createAssignment">Create Assignments</Link>
           </li>
           <li>
             <Link>Pending Assignments </Link>
