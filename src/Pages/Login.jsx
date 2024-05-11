@@ -20,7 +20,7 @@ const Login = () => {
             toast.success('Successfully Login')
             if(result.user){
                 setTimeout(()=>{
-                    navigate('/')
+                    navigate(location?.state || "/");
                 },3000)
             }
         })
@@ -31,7 +31,7 @@ const Login = () => {
         .then((result)=>{
             if(result.user){
                 toast.success('Successfully Login')
-                navigate('/')
+                navigate(location?.state || "/");
             }
         })
     }

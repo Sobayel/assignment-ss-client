@@ -1,38 +1,34 @@
 import { useEffect, useState } from "react";
 import AssignmentCard from "../components/AssignmentCard";
+import { useLoaderData } from "react-router-dom";
 
 
 const Assignments = () => {
-    const [filter, setFilter] = useState('')
-    const [features, setFeatures] = useState([])
+    const loadedAssignment = useLoaderData();
+    console.log(loadedAssignment);
+    const [filter, setFilter] = useState('all')
+    const [features, setFeatures] = useState(loadedAssignment)
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/skillUp?filter=${filter}`)
-        .then(res => res.json())
-        .then(result =>{
-            setFeatures(result)
-            console.log(result)
-        }).catch(error =>console.log(error))
+        if(filter === "all"){
+            setFeatures(loadedAssignment)
+        }else{
+            const filterAssignment = loadedAssignment.filter(assignments => assignments.difficulty === filter)
+            setFeatures(filterAssignment)
+        }
     },[filter])
+
     return (
         <div>
-         <div className="justify-center mx-auto my-10 flex">
-         <select
-              onChange={e => {
-                setFilter(e.target.value)
-              }}
-              value={filter}
-              name='difficulty'
-              id='difficulty'
-              className='border p-4 rounded-lg'
-            >
-              <option value=''>Filter By Difficulty</option>
-              <option value='Easy'>Easy</option>
-              <option value='Medium'>Medium</option>
-              <option value='Hard'>Hard</option>
-            </select>
+         <div className="dropdown dropdown-bottom justify-center mx-auto my-10 flex">
+         <div tabIndex={0} role="button" className=" btn m-1">Difficulty Level</div>
+              <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+              <li onClick={()=>setFilter("Easy")} >Easy</li>
+              <li onClick={()=>setFilter("Medium")} >Medium</li>
+              <li onClick={()=>setFilter("Hard")}>Hard</li>
+              </ul>
          </div>
-            <div className='grid grid-cols-1 gap-8 mt-8 lg:mt-16 md:grid-cols-2 lg:grid-cols-3'>
+            <div className='grid grid-cols-1 p-4 gap-8 mt-8 lg:mt-16 md:grid-cols-2 lg:grid-cols-4'>
             {features
               .map(feature => (
                 <AssignmentCard key={feature._id} feature={feature} />
