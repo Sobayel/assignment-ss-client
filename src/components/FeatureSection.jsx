@@ -17,11 +17,11 @@ const FeatureSection = () => {
     return (
         <Tabs>
       <div className=' container px-6 py-10 mx-auto'>
-        <h1 className='text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl '>
+        <h1 className='text-2xl font-semibold text-center  capitalize lg:text-3xl '>
           Feature Section
         </h1>
 
-        <p className='max-w-2xl mx-auto my-6 text-center text-gray-500 '>
+        <p className='max-w-2xl mx-auto my-6 text-center  '>
         Discover a range of revolutionary features tailored to modern needs. Smart AI integration streamlines tasks with predictive suggestions. Customizable interfaces ensure a user-centric experience. Enhanced security protocols safeguard data in an interconnected world.
         </p>
         <div className='flex items-center justify-center'>

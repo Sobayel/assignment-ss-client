@@ -1,8 +1,53 @@
-# React + Vite
+# assignment_category_0001
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Skill Up
 
-Currently, two official plugins are available:
+github client link:https://github.com/Porgramming-Hero-web-course/b9a11-client-side-Sobayel 
+github server link: https://github.com/Porgramming-Hero-web-course/b9a11-server-side-Sobayel 
+live link:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Website Page Name:
+- Home
+- Create Assignment
+- Assignment
+- Assignment Details
+- pending Assignment
+- Nav ber 
+- Banner
+- Login
+- Register
+- 404 Page
+- Feature Section
+- FAQ
+- Footer
+
+## Assignment Category:
+- Introduction to Python Programming
+- Data Analysis with Pandas
+- Machine Learning Project
+- HTML and CSS Basics
+- Database Design and SQL Queries
+- Full-Stack Web Development Project
+- JavaScript Fundamentals
+- Responsive Web Design with CSS
+- Deep Learning Project
+
+## NPM Package:
+- firebase
+- react
+- react dom
+- react hot toast
+- react icons
+- react router dom
+- swi per
+- tailwind css
+- daisy ui
+- sweet alert 2
+- meraki ui
+- react-tabs
+- date-fns
+- eslint-plugin-react
+- vite
+- react-date picker
+
+

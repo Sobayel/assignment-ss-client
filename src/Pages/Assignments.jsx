@@ -20,7 +20,7 @@ const Assignments = () => {
     return (
         <div>
          <div className="dropdown dropdown-bottom justify-center mx-auto my-10 flex">
-         <div tabIndex={0} role="button" className=" btn m-1">Difficulty Level</div>
+         <div tabIndex={0} role="button" className=" btn  m-1">Difficulty Level</div>
               <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
               <li onClick={()=>setFilter("Easy")} >Easy</li>
               <li onClick={()=>setFilter("Medium")} >Medium</li>
