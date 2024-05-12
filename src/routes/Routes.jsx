@@ -10,6 +10,7 @@ import Assignments from "../Pages/Assignments";
 import Error from "../Pages/Error";
 import Update from "../Pages/Update";
 import ViewDetails from "../Pages/ViewDetails";
+import PendingAssignment from "../Pages/PendingAssignment";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
         element: <ViewDetails></ViewDetails>,
         loader:({params})=> fetch(`http://localhost:5000/skillUp/${params.id}`)
     },
+    {
+      path:'/pendingAssignment',
+      element: <PendingAssignment></PendingAssignment>
+    }
       ]
     },
   ]);

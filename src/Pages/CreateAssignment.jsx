@@ -32,14 +32,12 @@ const CreateAssignment = () => {
             if(data.insertedId){
                 Swal.fire({
                     title: 'Success!',
-                    text: 'Add Craft Added Successfully',
+                    text: 'Create Assignment Added Successfully',
                     icon: 'success',
                     confirmButtonText: 'Cool'
                   })
             }
         })
-
-        
     }
     return (
         <div className="flex justify-center items-center my-12">

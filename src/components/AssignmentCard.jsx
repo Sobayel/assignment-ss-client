@@ -3,13 +3,15 @@ import { GrUpdate } from "react-icons/gr";
 import { LuView } from "react-icons/lu";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../provider/AuthProvider";
 
 const AssignmentCard = ({ feature, features, setFeatures }) => {
     const {_id, name, mark, date, description, image } = feature || {};
+    const {user} = useContext(AuthContext)
 
 
     const handleDelete = _id =>{
-        console.log(_id)
         Swal.fire({
             title:"Are you sure?",
             text:"You won't be able to revert this",
@@ -55,9 +57,12 @@ const AssignmentCard = ({ feature, features, setFeatures }) => {
                     <p className="py-2 text-gray-700 dark:text-gray-400">{description}</p>
 
                     <div className="inline-flex gap-3 lg:flex-col">
-                    <div className="items-center mt-2 lg:mt-4 text-gray-700 dark:text-gray-200">
-                        <button onClick={()=>handleDelete(_id)} className="px-2 btn text-sm inline-flex"><span className="text-lg"><MdDeleteForever></MdDeleteForever></span> Delete</button>
-                    </div>
+                        {
+                            user?.email && <div className="items-center mt-2 lg:mt-4 text-gray-700 dark:text-gray-200">
+                            <button onClick={()=>handleDelete(_id)} className="px-2 btn text-sm inline-flex"><span className="text-lg"><MdDeleteForever></MdDeleteForever></span> Delete</button>
+                        </div>
+                        }
+                    
 
                     <div className="items-center mt-2 text-gray-700 dark:text-gray-200">
                         <Link to={`/update/${_id}`} className="px-2 btn text-sm"><span className="text-lg"><GrUpdate></GrUpdate></span>Update</Link>
