@@ -8,6 +8,7 @@ import Register from "../Pages/Register";
 import CreateAssignment from "../Pages/CreateAssignment";
 import Assignments from "../Pages/Assignments";
 import Error from "../Pages/Error";
+import Update from "../Pages/Update";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -35,6 +36,11 @@ const router = createBrowserRouter([
             element: <Assignments></Assignments>,
             loader: () => fetch('http://localhost:5000/skillUp')
         },
+        {
+          path: '/update/:id',
+          element: <Update></Update>,
+          loader:({params})=> fetch(`http://localhost:5000/skillUp/${params.id}`)
+      },
       ]
     },
   ]);

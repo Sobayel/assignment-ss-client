@@ -2,6 +2,7 @@ import { MdDeleteForever } from "react-icons/md";
 import { GrUpdate } from "react-icons/gr";
 import { LuView } from "react-icons/lu";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const AssignmentCard = ({ feature, features, setFeatures }) => {
     console.log(feature)
@@ -62,7 +63,7 @@ const AssignmentCard = ({ feature, features, setFeatures }) => {
 
                     <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
                         <GrUpdate></GrUpdate>
-                        <h1 className="px-2 text-sm">Update</h1>
+                        <Link to="/update/:id" className="px-2 text-sm">Update</Link>
                     </div>
 
                     <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
