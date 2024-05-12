@@ -6,13 +6,13 @@ import Swal from "sweetalert2";
 
 const Update = () => {
     const assignment = useLoaderData()
-    console.log(assignment)
+    console.log(assignment);
     const {_id, name, mark,date, description, difficulty, image} = assignment || {};
     const [startDate, setStartDate] = useState(new Date())
 
-    const handleUpdateAssignment = event => {
-        event.preventDefault();
-        const form = event.target;
+    const handleUpdateAssignment = e => {
+        e.preventDefault();
+        const form = e.target;
 
         const name = form.name.value;
         const mark = form.mark.value;
@@ -31,23 +31,26 @@ const Update = () => {
             body: JSON.stringify(assignmentForm)
         })
         .then(res => res.json())
-        .then(data =>{
-            console.log(data)
-            if(data.modifiedCount > 0){
+        .then(data => {
+            console.log(data);
+            if(data.modifiedCount){
                 Swal.fire({
-                    title: 'Success',
-                    text: 'Assignment Updated Successfully',
+                    title: 'Success!',
+                    text: 'Arts Updated Successfully',
                     icon: 'success',
                     confirmButtonText: 'Cool'
-                })
+                  })
             }
+        })
+        .catch(err=> {
+            console.log(err)
         })
     }
     return (
         <div className="flex justify-center items-center my-12">
             <section className="p-2 md:p-5 mx-auto bg-white rounded-xl shadow-xl">
                 <h2 className="text-2xl font-bold text-gray-700 text-center">
-                    Create Assignment List
+                    Update Assignment Form
                 </h2>
                 <form onSubmit={handleUpdateAssignment}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5">
@@ -101,7 +104,7 @@ const Update = () => {
                             <textarea type="text" placeholder="Description" name="description" defaultValue={description} id="" className="block w-full px-4 py-2 mt-2 text-slate-700 rounded-sm bg-white border border-slate-300 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-30 focus:outline-none focus:ring" />
                         </div>
                         <div className="mt-4">
-                    <input type="submit" value="Update Assignment" className='px-8 w-full py-2.5 leading-5 text-white transition-colors duration-300 transhtmlForm bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600' />
+                    <input type="submit" value="Update Assignment" className='px-8 w-full py-2.5 leading-5 btn text-white transition-colors duration-300 transhtmlForm bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600' />
                 </div>
                 </form>
             </section>

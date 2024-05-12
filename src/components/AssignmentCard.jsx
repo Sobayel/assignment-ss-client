@@ -5,7 +5,6 @@ import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
 const AssignmentCard = ({ feature, features, setFeatures }) => {
-    console.log(feature)
     const {_id, name, mark, date, description, image } = feature || {};
 
 
@@ -26,7 +25,6 @@ const AssignmentCard = ({ feature, features, setFeatures }) => {
                 })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
                     if(data.deletedCount > 0){
                         Swal.fire(
                             "Deleted!",
@@ -56,19 +54,16 @@ const AssignmentCard = ({ feature, features, setFeatures }) => {
 
                     <p className="py-2 text-gray-700 dark:text-gray-400">{description}</p>
 
-                    <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
-                        <MdDeleteForever></MdDeleteForever>
-                        <button onClick={()=>handleDelete(_id)} className="px-2 text-sm">Delete</button>
+                    <div className="items-center mt-4 text-gray-700 dark:text-gray-200">
+                        <button onClick={()=>handleDelete(_id)} className="px-2 btn text-sm inline-flex"><span className="text-lg"><MdDeleteForever></MdDeleteForever></span> Delete</button>
                     </div>
 
-                    <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
-                        <GrUpdate></GrUpdate>
-                        <Link to="/update/:id" className="px-2 text-sm">Update</Link>
+                    <div className="items-center mt-2 text-gray-700 dark:text-gray-200">
+                        <Link to={`/update/${_id}`} className="px-2 btn text-sm"><span className="text-lg"><GrUpdate></GrUpdate></span>Update</Link>
                     </div>
 
-                    <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
-                        <LuView></LuView>
-                        <h1 className="px-2 text-sm">View</h1>
+                    <div className="items-center mt-2 text-gray-700 dark:text-gray-200">
+                        <h1 className="px-2 btn text-sm"><span className="text-lg"><LuView></LuView></span>View</h1>
                     </div>
                 </div>
             </div>

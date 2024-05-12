@@ -5,7 +5,6 @@ import { useLoaderData } from "react-router-dom";
 
 const Assignments = () => {
     const loadedAssignment = useLoaderData();
-    console.log(loadedAssignment);
     const [filter, setFilter] = useState('all')
     const [features, setFeatures] = useState(loadedAssignment)
 
