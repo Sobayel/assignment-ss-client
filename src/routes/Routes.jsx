@@ -9,6 +9,7 @@ import CreateAssignment from "../Pages/CreateAssignment";
 import Assignments from "../Pages/Assignments";
 import Error from "../Pages/Error";
 import Update from "../Pages/Update";
+import ViewDetails from "../Pages/ViewDetails";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -41,6 +42,11 @@ const router = createBrowserRouter([
           element: <Update></Update>,
           loader:({params})=> fetch(`http://localhost:5000/skillUp/${params.id}`)
       },
+      {
+        path: '/viewDetails/:id',
+        element: <ViewDetails></ViewDetails>,
+        loader:({params})=> fetch(`http://localhost:5000/skillUp/${params.id}`)
+    },
       ]
     },
   ]);

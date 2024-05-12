@@ -54,7 +54,8 @@ const AssignmentCard = ({ feature, features, setFeatures }) => {
 
                     <p className="py-2 text-gray-700 dark:text-gray-400">{description}</p>
 
-                    <div className="items-center mt-4 text-gray-700 dark:text-gray-200">
+                    <div className="inline-flex gap-3 lg:flex-col">
+                    <div className="items-center mt-2 lg:mt-4 text-gray-700 dark:text-gray-200">
                         <button onClick={()=>handleDelete(_id)} className="px-2 btn text-sm inline-flex"><span className="text-lg"><MdDeleteForever></MdDeleteForever></span> Delete</button>
                     </div>
 
@@ -63,7 +64,8 @@ const AssignmentCard = ({ feature, features, setFeatures }) => {
                     </div>
 
                     <div className="items-center mt-2 text-gray-700 dark:text-gray-200">
-                        <h1 className="px-2 btn text-sm"><span className="text-lg"><LuView></LuView></span>View</h1>
+                        <Link to={`/viewDetails/${_id}`} className="px-2 btn text-sm"><span className="text-lg"><LuView></LuView></span>View</Link>
+                    </div>
                     </div>
                 </div>
             </div>
