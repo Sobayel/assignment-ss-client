@@ -5,24 +5,24 @@ import 'react-tabs/style/react-tabs.css'
 
 
 const FeatureSection = () => {
-    const [features, setFeatures] = useState([])
-    useEffect(()=>{
-        fetch('http://localhost:5000/skillUp')
-        .then(res => res.json())
-        .then(result =>{
-            setFeatures(result)
-            console.log(result)
-        }).catch(error =>console.log(error))
-    },[])
-    return (
-        <Tabs>
+  const [features, setFeatures] = useState([])
+  useEffect(() => {
+    fetch('http://localhost:5000/skillUp')
+      .then(res => res.json())
+      .then(result => {
+        setFeatures(result)
+        console.log(result)
+      }).catch(error => console.log(error))
+  }, [])
+  return (
+    <Tabs>
       <div className=' container px-6 py-10 mx-auto'>
         <h1 className='text-2xl font-semibold text-center  capitalize lg:text-3xl '>
           Feature Section
         </h1>
 
         <p className='max-w-2xl mx-auto my-6 text-center  '>
-        Discover a range of revolutionary features tailored to modern needs. Smart AI integration streamlines tasks with predictive suggestions. Customizable interfaces ensure a user-centric experience. Enhanced security protocols safeguard data in an interconnected world.
+          Discover a range of revolutionary features tailored to modern needs. Smart AI integration streamlines tasks with predictive suggestions. Customizable interfaces ensure a user-centric experience. Enhanced security protocols safeguard data in an interconnected world.
         </p>
         <div className='flex items-center justify-center'>
           <TabList>
@@ -61,7 +61,7 @@ const FeatureSection = () => {
         </TabPanel>
       </div>
     </Tabs>
-    );
+  );
 };
 
 export default FeatureSection;

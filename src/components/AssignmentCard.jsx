@@ -7,36 +7,36 @@ import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 
 const AssignmentCard = ({ feature, features, setFeatures }) => {
-    const {_id, name, mark, date, description, image } = feature || {};
-    const {user} = useContext(AuthContext)
+    const { _id, name, mark, date, description, image } = feature || {};
+    const { user } = useContext(AuthContext)
 
 
-    const handleDelete = _id =>{
+    const handleDelete = _id => {
         Swal.fire({
-            title:"Are you sure?",
-            text:"You won't be able to revert this",
-            icon:"warning",
+            title: "Are you sure?",
+            text: "You won't be able to revert this",
+            icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!"
-        }).then((result) =>{
-            if(result.isConfirmed){
-                fetch(`http://localhost:5000/skillUp/${_id}`,{
-                    method:'DELETE'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/skillUp/${_id}`, {
+                    method: 'DELETE'
                 })
-                .then(res => res.json())
-                .then(data => {
-                    if(data.deletedCount > 0){
-                        Swal.fire(
-                            "Deleted!",
-                            "Your Art has been deleted",
-                            "success"
-                        );
-                        const remaining = features.filter(ass => ass._id !== _id)
-                        setFeatures(remaining)
-                    }
-                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                "Deleted!",
+                                "Your Art has been deleted",
+                                "success"
+                            );
+                            const remaining = features.filter(ass => ass._id !== _id)
+                            setFeatures(remaining)
+                        }
+                    })
             }
         })
     }
@@ -59,18 +59,18 @@ const AssignmentCard = ({ feature, features, setFeatures }) => {
                     <div className="inline-flex gap-3 lg:flex-col">
                         {
                             user?.email && <div className="items-center mt-2 lg:mt-4 text-gray-700 dark:text-gray-200">
-                            <button onClick={()=>handleDelete(_id)} className="px-2 btn text-sm inline-flex"><span className="text-lg"><MdDeleteForever></MdDeleteForever></span> Delete</button>
-                        </div>
+                                <button onClick={() => handleDelete(_id)} className="px-2 btn text-sm inline-flex"><span className="text-lg"><MdDeleteForever></MdDeleteForever></span> Delete</button>
+                            </div>
                         }
-                    
 
-                    <div className="items-center mt-2 text-gray-700 dark:text-gray-200">
-                        <Link to={`/update/${_id}`} className="px-2 btn text-sm"><span className="text-lg"><GrUpdate></GrUpdate></span>Update</Link>
-                    </div>
 
-                    <div className="items-center mt-2 text-gray-700 dark:text-gray-200">
-                        <Link to={`/viewDetails/${_id}`} className="px-2 btn text-sm"><span className="text-lg"><LuView></LuView></span>View</Link>
-                    </div>
+                        <div className="items-center mt-2 text-gray-700 dark:text-gray-200">
+                            <Link to={`/update/${_id}`} className="px-2 btn text-sm"><span className="text-lg"><GrUpdate></GrUpdate></span>Update</Link>
+                        </div>
+
+                        <div className="items-center mt-2 text-gray-700 dark:text-gray-200">
+                            <Link to={`/viewDetails/${_id}`} className="px-2 btn text-sm"><span className="text-lg"><LuView></LuView></span>View</Link>
+                        </div>
                     </div>
                 </div>
             </div>
