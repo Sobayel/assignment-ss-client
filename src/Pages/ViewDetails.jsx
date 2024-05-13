@@ -74,7 +74,7 @@ const ViewDetails = () => {
                     {isOpen && <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                         <form onSubmit={handlePdf} className="modal-box">
                             <div className="mt-3">
-                                <label className="font-semibold"
+                                <label className="font-semibold text-xl"
                                     htmlFor="image">
                                     PDF
                                 </label>
@@ -82,7 +82,7 @@ const ViewDetails = () => {
                             </div>
                             <div>
                                 <div className="mt-3">
-                                    <label className="font-semibold"
+                                    <label className="font-semibold text-xl"
                                         htmlFor="description">
                                         Quick Note Text
                                     </label>
