@@ -1,9 +1,12 @@
+import { useLoaderData } from "react-router-dom";
 
 
 const MySubmitted = () => {
+    const feedbackMark = useLoaderData()
+    console.log(feedbackMark);
     return (
         <div className='my-8'>
-            <h1 className='text-4xl text-purple-400 font-bold flex justify-center'>My Submitted Assignment:</h1>
+            <h1 className='text-4xl text-blue-700 font-bold flex justify-center'>My Submitted Assignment: {feedbackMark.length}</h1>
             <div className=' mt-10'>
                 <div className="overflow-x-auto">
                     <table className="table table-xs">
@@ -17,13 +20,19 @@ const MySubmitted = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr className="text-sm text-center">
-                                <td>Sobayel</td>
-                                <td>100</td>
-                                <td>50</td>
-                                <td>good</td>
-                                <td>Pending</td>
+                            {   
+                            feedbackMark.map((data, index)=>{
+                                return <tr key={index}
+                                className="text-xl text-center">
+                                <td className='text-center text-sm font-semibold'>{data?.name}</td>
+                                <td className='text-center text-sm font-semibold'>{data?.totalMark}</td>
+                                <td className='text-center text-sm font-semibold'>{data?.obtainedMarks}</td>
+                                <td className='text-center text-sm font-semibold'>{data?.feedback}</td>
+                                <td className='text-center text-sm font-semibold'>{data?.status}</td>
                             </tr>
+                            })
+                                
+                            }
 
                         </tbody>
                     </table>

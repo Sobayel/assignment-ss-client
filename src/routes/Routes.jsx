@@ -12,6 +12,7 @@ import Update from "../Pages/Update";
 import ViewDetails from "../Pages/ViewDetails";
 import PendingAssignment from "../Pages/PendingAssignment";
 import MySubmitted from "../Pages/MySubmitted";
+import PrivateRoute from "./PrivateRoute";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -32,7 +33,9 @@ const router = createBrowserRouter([
       },
       {
         path: '/createAssignment',
-        element: <CreateAssignment></CreateAssignment>
+        element: <PrivateRoute>
+          <CreateAssignment></CreateAssignment>
+        </PrivateRoute>
       },
       {
         path: '/assignment',
@@ -46,17 +49,24 @@ const router = createBrowserRouter([
       },
       {
         path: '/viewDetails/:id',
-        element: <ViewDetails></ViewDetails>,
+        element: <PrivateRoute>
+          <ViewDetails></ViewDetails>
+        </PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/skillUp/${params.id}`)
       },
       {
         path: '/pendingAssignment',
-        element: <PendingAssignment></PendingAssignment>,
+        element: <PrivateRoute>
+          <PendingAssignment></PendingAssignment>
+        </PrivateRoute>,
         loader: () => fetch('http://localhost:5000/assignment/pending')
       },
       {
         path:'/mySubmitted',
-        element:<MySubmitted></MySubmitted>
+        element: <PrivateRoute>
+          <MySubmitted></MySubmitted>,
+        </PrivateRoute>,
+        loader:() => fetch('http://localhost:5000/my-assignment')
       }
     ]
   },

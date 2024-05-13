@@ -32,7 +32,7 @@ const Navbar = () => {
           </ul>
         </div>
         <img className="h-6 w-8 md:h-10 md:w-14 rounded-xl" src={logo} alt="" />
-        <a className="btn btn-ghost text-xl">Skill Up</a>
+        <Link to='/' className="btn btn-ghost text-xl">Skill Up</Link>
 
       </div>
       <div className="navbar-center hidden lg:flex">

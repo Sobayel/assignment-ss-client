@@ -6,7 +6,6 @@ import { AuthContext } from "../provider/AuthProvider";
 
 
 const ViewDetails = () => {
-    const { id } = useParams()
     const navigate = useNavigate()
     const cardsDetails = useLoaderData()
     const { name, mark, difficulty, date, description, image } = cardsDetails || {};
@@ -17,7 +16,6 @@ const ViewDetails = () => {
     const handlePdf = event => {
         event.preventDefault();
         const form = event.target;
-
         const pdf = form.pdf.value;
         const note = form.note.value;
         const status = "pending"
@@ -38,7 +36,7 @@ const ViewDetails = () => {
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',
-                        text: 'Create Assignment Added Successfully',
+                        text: 'PDF And Quick Note Added Successfully',
                         icon: 'success',
                         confirmButtonText: 'Cool'
                     })
