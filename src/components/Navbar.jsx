@@ -6,6 +6,11 @@ import logo from "../assets/logo.png"
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext)
+  const handleLogOut = () =>{
+    logOut()
+    .then(() =>{})
+    .catch(err => console.log(err)())
+  }
   return (
     <div className="navbar bg-base-100 lg:p-6">
       <div className="navbar-start">
@@ -36,7 +41,7 @@ const Navbar = () => {
 
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal font-semibold px-1">
+        <ul className="menu menu-horizontal gap-3 font-semibold px-1">
           <li>
             <Link to='/'>Home</Link>
           </li>
@@ -92,7 +97,7 @@ const Navbar = () => {
               >
                 <li className='mt-2'>
                   <button
-                    onClick={logOut}
+                    onClick={handleLogOut}
                     className=' block border font-semibold border-blue-600 text-center'
                   >
                     Logout

@@ -6,7 +6,6 @@ import Swal from "sweetalert2";
 
 const Update = () => {
     const assignment = useLoaderData()
-    console.log(assignment);
     const { _id, name, mark, date, description, difficulty, image } = assignment || {};
     const [startDate, setStartDate] = useState(new Date())
 
@@ -21,7 +20,6 @@ const Update = () => {
         const difficulty = form.difficulty.value;
         const image = form.image.value;
         const assignmentForm = { name, mark, date, description, difficulty, image };
-        console.log(assignmentForm);
 
         fetch(`http://localhost:5000/skillUp/${_id}`, {
             method: 'PUT',
@@ -32,7 +30,6 @@ const Update = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: 'Success!',

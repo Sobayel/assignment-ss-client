@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import Row from "../components/Row";
 const PendingAssignment = () => {
     const loaderPdfData = useLoaderData()
-    
+
     return (
         <div className='my-8'>
             <h1 className='text-2xl md:text-4xl text-blue-700 font-bold flex justify-center'>Pending Assignment: {loaderPdfData.length}</h1>
@@ -22,9 +22,9 @@ const PendingAssignment = () => {
                         <tbody>
                             {
                                 loaderPdfData.map((data, index) => {
-                                    return <Row data={data} 
-                                    serial={index+1}
-                                    loaderPdfData={{loaderPdfData}} key={index}/>
+                                    return <Row data={data}
+                                        serial={index + 1}
+                                        loaderPdfData={{ loaderPdfData }} key={index} />
                                 })
                             }
                         </tbody>

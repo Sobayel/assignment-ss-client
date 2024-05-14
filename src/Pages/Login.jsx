@@ -1,38 +1,51 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png"
 import { useContext } from "react";
 import toast from "react-hot-toast";
 import { AuthContext } from "../provider/AuthProvider";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 const Login = () => {
     const navigate = useNavigate()
+    const location = useLocation()
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { signIn, signInWithGoogle } = useContext(AuthContext)
 
     const handleSignIn = (data) => {
         const { email, password } = data;
-        console.log(email, password);
 
         signIn(email, password)
             .then((result) => {
-                toast.success('Successfully Login')
-                if (result.user) {
-                    setTimeout(() => {
-                        navigate(location?.state || "/");
-                    }, 3000)
-                }
+                const loggedInUser = result.user;
+                const user = { email }
+
+                axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+                    .then(res => {
+                        if (res.data.success) {
+                            toast.success('Successfully Login')
+                            navigate(location?.state ? location?.state : '/')
+                        }
+                    })
             })
+            .catch(err => { console.log(err) })
     }
 
-    const handleGoogleLogin = () => {
+    const handleGoogleLogin = ({ email }) => {
         signInWithGoogle()
             .then((result) => {
-                if (result.user) {
-                    toast.success('Successfully Login')
-                    navigate(location?.state || "/");
-                }
+                const loggedInUser = result.user;
+                const user = { email }
+
+                axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+                    .then(res => {
+                        if (res.data.success) {
+                            toast.success('Successfully Login')
+                            navigate(location?.state ? location?.state : '/')
+                        }
+                    })
             })
+            .catch(err => { console.log(err) })
     }
     return (
         <>

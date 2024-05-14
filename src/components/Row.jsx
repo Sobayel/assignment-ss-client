@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+/* eslint-disable react/prop-types */
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Swal from "sweetalert2";
 
 
 const Row = ({ data, loaderPdfData, serial }) => {
-    console.log(loaderPdfData);
+
     const [obtainedMarks, setObtainedMark] = useState(0);
     const [feedback, setFeedBack] = useState('')
     const navigate = useNavigate()
@@ -19,8 +20,8 @@ const Row = ({ data, loaderPdfData, serial }) => {
             <td className='text-center text-sm font-semibold'>{data?.email}</td>
             <td className='text-center text-sm font-semibold'>{data?.mark}</td>
             <td>
-                <button className="btn justify-center mx-auto flex text-sm btn-primary" onClick={() => document.getElementById('my_modal_5').showModal()}>Give Mark</button>
-                <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+                <button className="btn justify-center mx-auto flex text-sm btn-primary" onClick={() => document.getElementById(`my_modal_${serial}`).showModal()}>Give Mark</button>
+                <dialog id={`my_modal_${serial}`} className="modal modal-bottom sm:modal-middle">
                     <div className="modal-box">
                         <h3 className="font-normal text-sm"><span className='text-blue-800 font-semibold'>PDF:</span> {data?.pdf}</h3>
                         <p className="py-4 text-sm"><span className='text-blue-800 font-semibold'>Quick Note Text:</span> {data?.note}</p>
@@ -33,6 +34,7 @@ const Row = ({ data, loaderPdfData, serial }) => {
                                 status: obtainedMarks <= 0 ? "pending" : "complete",
                                 feedback
                             }
+
                             fetch(`http://localhost:5000/my-assignment`, {
                                 method: 'POST',
                                 headers: {

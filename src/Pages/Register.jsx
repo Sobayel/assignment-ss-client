@@ -4,16 +4,16 @@ import { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { AuthContext } from "../provider/AuthProvider";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 const Register = () => {
     const navigate = useNavigate()
-    const { register, handleSubmit, formState: { errors }} = useForm()
+    const { register, handleSubmit, formState: { errors } } = useForm()
     const { signInWithGoogle, createUser, updateUserProfile } = useContext(AuthContext)
     const [registerError, setRegisterError] = useState('');
 
     const handleSignUp = (data) => {
-        const {email, password, name, image} = data;
-        console.log(email,password,name,image);
+        const { email, password, name, image } = data;
 
 
         setRegisterError('')
@@ -33,23 +33,38 @@ const Register = () => {
         createUser(email, password)
             .then(() => {
                 updateUserProfile(name, image)
-                    .then(() => {
-                        toast.success('Successfully Register');
-                        setTimeout(() => {
-                            navigate('/')
-                        }, 3000)
+                    .then((result) => {
+                        const loggedInUser = result.user;
+                        const user = { email }
+
+                        axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+                            .then(res => {
+                                if (res.data.success) {
+                                    toast.success('Successfully Login')
+                                    navigate('/')
+                                }
+                            })
                     })
+                    .catch(err => { console.log(err) })
             })
     }
 
-    const handleGoogleLogin = () => {
+    // Google Login
+    const handleGoogleLogin = ({ email }) => {
         signInWithGoogle()
             .then((result) => {
-                if (result.user) {
-                    toast.success('Successfully Login')
-                    navigate('/')
-                }
+                const loggedInUser = result.user;
+                const user = { email }
+
+                axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+                    .then(res => {
+                        if (res.data.success) {
+                            toast.success('Successfully Login')
+                            navigate('/')
+                        }
+                    })
             })
+            .catch(err => { console.log(err) })
     }
     return (
         <>
@@ -72,7 +87,7 @@ const Register = () => {
                     </div>
                     <div>
                         <label className="block text-sm font-semibold text-gray-800 dark:text-gray-200">Photo URL</label>
-                        <input name="image" type="text" placeholder="Photo URL" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" {...register("image")}/>
+                        <input name="image" type="text" placeholder="Photo URL" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" {...register("image")} />
                     </div>
 
                     <div className="mt-4">

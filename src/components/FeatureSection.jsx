@@ -11,7 +11,6 @@ const FeatureSection = () => {
       .then(res => res.json())
       .then(result => {
         setFeatures(result)
-        console.log(result)
       }).catch(error => console.log(error))
   }, [])
   return (

@@ -18,7 +18,6 @@ const CreateAssignment = () => {
         const difficulty = form.difficulty.value;
         const image = form.image.value;
         const assignmentForm = { name, mark, date, description, difficulty, image };
-        console.log(assignmentForm);
         fetch('http://localhost:5000/skillUp', {
             method: 'POST',
             headers: {
@@ -28,7 +27,6 @@ const CreateAssignment = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',

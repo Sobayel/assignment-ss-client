@@ -59,7 +59,7 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <PendingAssignment></PendingAssignment>
         </PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/assignment/pending')
+        loader: () => fetch('http://localhost:5000/pdf')
       },
       {
         path:'/mySubmitted',

@@ -11,7 +11,6 @@ const ViewDetails = () => {
     const { name, mark, difficulty, date, description, image } = cardsDetails || {};
     const [isOpen, setIsOpen] = useState(false)
     const { user } = useContext(AuthContext)
-    console.log(user.email)
 
     const handlePdf = event => {
         event.preventDefault();
@@ -32,7 +31,6 @@ const ViewDetails = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',

@@ -1,7 +1,6 @@
 
 
 const FeatureCard = ({ feature }) => {
-    console.log(feature)
     const { name, mark, date, description, image } = feature || {};
     return (
         <div>
