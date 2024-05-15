@@ -22,7 +22,7 @@ const ViewDetails = () => {
         const mark = cardsDetails.mark;
         const name = cardsDetails.name
         const pdfForm = { pdf, note, status, email, mark, name };
-        fetch('http://localhost:5000/pdf', {
+        fetch('https://assignment-ss-server.vercel.app/pdf', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

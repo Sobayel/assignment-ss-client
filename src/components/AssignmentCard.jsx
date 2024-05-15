@@ -22,7 +22,7 @@ const AssignmentCard = ({ feature, features, setFeatures }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/skillUp/${_id}`, {
+                fetch(`https://assignment-ss-server.vercel.app/skillUp/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

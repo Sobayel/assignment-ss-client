@@ -40,33 +40,33 @@ const router = createBrowserRouter([
       {
         path: '/assignment',
         element: <Assignments></Assignments>,
-        loader: () => fetch('http://localhost:5000/skillUp')
+        loader: () => fetch('https://assignment-ss-server.vercel.app/skillUp')
       },
       {
         path: '/update/:id',
         element: <Update></Update>,
-        loader: ({ params }) => fetch(`http://localhost:5000/skillUp/${params.id}`)
+        loader: ({ params }) => fetch(`https://assignment-ss-server.vercel.app/skillUp/${params.id}`)
       },
       {
         path: '/viewDetails/:id',
         element: <PrivateRoute>
           <ViewDetails></ViewDetails>
         </PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/skillUp/${params.id}`)
+        loader: ({ params }) => fetch(`https://assignment-ss-server.vercel.app/skillUp/${params.id}`)
       },
       {
         path: '/pendingAssignment',
         element: <PrivateRoute>
           <PendingAssignment></PendingAssignment>
         </PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/pdf')
+        loader: () => fetch('https://assignment-ss-server.vercel.app/pdf')
       },
       {
         path:'/mySubmitted',
         element: <PrivateRoute>
           <MySubmitted></MySubmitted>,
         </PrivateRoute>,
-        loader:() => fetch('http://localhost:5000/my-assignment')
+        loader:() => fetch('https://assignment-ss-server.vercel.app/my-assignment')
       }
     ]
   },

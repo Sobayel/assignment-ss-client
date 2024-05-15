@@ -4,7 +4,7 @@
 
 github client link:https://github.com/Porgramming-Hero-web-course/b9a11-client-side-Sobayel 
 github server link: https://github.com/Porgramming-Hero-web-course/b9a11-server-side-Sobayel 
-live link:
+live link: https://assignment-ss-e02b6.web.app
 
 ## Website Page Name:
 - Home
@@ -12,6 +12,7 @@ live link:
 - Assignment
 - Assignment Details
 - pending Assignment
+- My Submitted
 - Nav ber 
 - Banner
 - Login
@@ -49,5 +50,9 @@ live link:
 - eslint-plugin-react
 - vite
 - react-date picker
+- axios
+- sweetalert2
+- react-hook-form
+- react-toastify
 
 

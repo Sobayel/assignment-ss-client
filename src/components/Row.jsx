@@ -35,7 +35,7 @@ const Row = ({ data, loaderPdfData, serial }) => {
                                 feedback
                             }
 
-                            fetch(`http://localhost:5000/my-assignment`, {
+                            fetch(`https://assignment-ss-server.vercel.app/my-assignment`, {
                                 method: 'POST',
                                 headers: {
                                     'content-type': 'application/json'

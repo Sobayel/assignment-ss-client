@@ -37,7 +37,7 @@ const Register = () => {
                         const loggedInUser = result.user;
                         const user = { email }
 
-                        axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+                        axios.post('https://assignment-ss-server.vercel.app/jwt', user, { withCredentials: true })
                             .then(res => {
                                 if (res.data.success) {
                                     toast.success('Successfully Login')
@@ -56,7 +56,7 @@ const Register = () => {
                 const loggedInUser = result.user;
                 const user = { email }
 
-                axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+                axios.post('https://assignment-ss-server.vercel.app/jwt', user, { withCredentials: true })
                     .then(res => {
                         if (res.data.success) {
                             toast.success('Successfully Login')

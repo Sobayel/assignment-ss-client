@@ -17,7 +17,7 @@ import img6 from '../assets/6th.jpg'
 
 export default function Banner() {
   return (
-    <div className='container px-6 py-10 mx-auto'>
+    <div className=' px-8 py-10 mx-auto'>
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

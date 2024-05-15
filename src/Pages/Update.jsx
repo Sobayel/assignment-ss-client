@@ -21,7 +21,7 @@ const Update = () => {
         const image = form.image.value;
         const assignmentForm = { name, mark, date, description, difficulty, image };
 
-        fetch(`http://localhost:5000/skillUp/${_id}`, {
+        fetch(`https://assignment-ss-server.vercel.app/skillUp/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -46,7 +46,7 @@ const Update = () => {
     return (
         <div className="flex justify-center items-center my-12">
             <section className="p-2 md:p-5 mx-auto bg-white rounded-xl shadow-xl">
-                <h2 className="text-2xl font-bold text-gray-700 text-center">
+                <h2 className="text-2xl mb-10 font-bold text-gray-700 text-center">
                     Update Assignment Form
                 </h2>
                 <form onSubmit={handleUpdateAssignment}>
