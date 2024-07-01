@@ -6,6 +6,21 @@ github client link:https://github.com/Porgramming-Hero-web-course/b9a11-client-s
 github server link: https://github.com/Porgramming-Hero-web-course/b9a11-server-side-Sobayel 
 live link: https://assignment-ss-e02b6.web.app
 
+## Best Feature
+- Obtained marks:I find the issue of giving marks from main marks interesting.
+- Feedback: Assignment feedback is provided from pending assignments.
+- My Submitted: Successfully done this assignment
+
+## Locally Run System
+- git clone
+- npm i
+- npm run dev
+
+## Project overview
+- This project involves developing application using the MERN stack. Users can create, complete, and grade assignments. It includes authentication, responsive design, and various functionalities like assignment creation, submission, and grading, ensuring a dynamic and user-friendly experience.
+- Problem this project give mark section and pending assignment 
+- Problem solve this project You tube, Google and W3 school
+
 ## Website Page Name:
 - Home
 - Create Assignment
@@ -23,7 +38,7 @@ live link: https://assignment-ss-e02b6.web.app
 - Footer
 
 ## Assignment Category:
-- Introduction to Python Programming
+- Introduction to JavaScript Programming
 - Data Analysis with Pandas
 - Machine Learning Project
 - HTML and CSS Basics
